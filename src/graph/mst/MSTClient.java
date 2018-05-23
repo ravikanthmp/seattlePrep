@@ -5,6 +5,7 @@ import graph.DirectedWeightedEdgeGraph;
 import graph.Edge;
 import graph.Graph;
 import graph.WeightedEdgeGraph;
+import graph.networkflows.FlowNetwork;
 
 /**
  * Created by Ravikanth on 5/15/2018.
@@ -45,6 +46,20 @@ public class MSTClient {
 
         return graph;
     }
+
+    public static FlowNetwork construct3(String url){
+        In in = new In(url);
+        int V = in.readInt();
+        int E = in.readInt();
+        FlowNetwork graph = new FlowNetwork(V);
+
+        for (int i = 0; i < E; i++) {
+            graph.addEdge(in.readInt(),in.readInt(), (int)in.readDouble());
+        }
+
+        return graph;
+    }
+
     public static void main(String[] args) {
         String url = "https://algs4.cs.princeton.edu/43mst/tinyEWG.txt";
         WeightedEdgeGraph graph = construct(url);

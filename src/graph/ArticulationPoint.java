@@ -40,7 +40,7 @@ public class ArticulationPoint {
                 }
             }else {
                 if (u != parent){
-                    low[c] = Math.min(low[c], low[u]);
+                    low[c] = Math.min(low[c], count[u]);
                 }
             }
         }
